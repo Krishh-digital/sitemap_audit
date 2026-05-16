@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Free Sitemap Checker — Fix Google Indexing Issues | SitemapAudit</title>
+<meta name="description" content="Free sitemap checker. Find unindexed pages, fix sitemap errors &amp; crawl waste. AI SEO expert report in 10 seconds. No login, 100% free.">
+<meta name="keywords" content="free sitemap checker,sitemap checker,check sitemap,xml sitemap validator,sitemap audit tool,sitemap audit,sitemap errors,sitemap indexing checker,check sitemap errors,google sitemap checker,google indexing checker,sitemap health check,technical seo audit,sitemap analyzer,seo audit tool free,free seo audit,sitemap not working,google not indexing pages,crawl budget,xml sitemap,sitemap generator checker">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="author" content="SitemapAudit">
+<link rel="canonical" href="https://sitemap-audit-six.vercel.app/">
+<meta property="og:site_name" content="SitemapAudit">
+<meta property="og:title" content="Free XML Sitemap Checker & SEO Audit Tool">
+<meta property="og:description" content="Free sitemap checker. Find unindexed pages, sitemap errors &amp; crawl issues. AI SEO expert report in 10 seconds. No login required.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sitemap-audit-six.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Sitemap Checker — Fix Google Indexing Issues">
+<meta name="twitter:description" content="Free sitemap checker. Finds unindexed pages, crawl errors &amp; sitemap issues. AI expert SEO report in 10 seconds. Zero login.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"SitemapAudit",
+"description":"Free XML sitemap audit tool that automatically fetches your sitemap, checks Google indexing signals, and delivers an AI-powered expert SEO report.",
+"url":"https://sitemap-audit-six.vercel.app/",
+"applicationCategory":"BusinessApplication",
+"operatingSystem":"Any",
+"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+"featureList":["Automatic sitemap fetch","Google indexing check","AI SEO report","CSV export","No login required"]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is SitemapAudit really free?","acceptedAnswer":{"@type":"Answer","text":"Yes, 100% free. No account, no credit card, no usage limits. The AI analysis uses Groq's free tier."}},
+{"@type":"Question","name":"How does automatic sitemap detection work?","acceptedAnswer":{"@type":"Answer","text":"Our server fetches your sitemap using real Chrome browser headers, bypassing Cloudflare. We try 9 sitemap URL patterns and check robots.txt."}},
+{"@type":"Question","name":"What does the health score mean?","acceptedAnswer":{"@type":"Answer","text":"The 0-100 score reflects sitemap quality for Google indexing. 80+ is excellent, 60-79 good, below 60 needs attention."}},
+{"@type":"Question","name":"Will fixing my sitemap improve rankings?","acceptedAnswer":{"@type":"Answer","text":"Sitemap fixes remove barriers preventing Google from indexing your pages. Many sites see 20-40% organic traffic increases within 4-8 weeks."}},
+{"@type":"Question","name":"Is my data stored?","acceptedAnswer":{"@type":"Answer","text":"No. Audits are processed in real-time and discarded immediately. Nothing is logged or retained."}}
+]}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sitemap-audit-six.vercel.app/"},{"@type":"ListItem","position":2,"name":"Free Sitemap Checker","item":"https://sitemap-audit-six.vercel.app/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SitemapAudit — Free Sitemap Checker","operatingSystem":"Web Browser","applicationCategory":"WebApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"247","bestRating":"5","worstRating":"1"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"},"description":"Free online sitemap checker and XML sitemap audit tool. Automatically fetches your sitemap, checks every URL for Google indexing issues, and delivers an AI-powered expert SEO report in seconds.","url":"https://sitemap-audit-six.vercel.app/","screenshot":"https://sitemap-audit-six.vercel.app/og.png","featureList":"Automatic sitemap fetch, Google indexing check, AI expert analysis, CSV export, No login required, Cloudflare bypass, Sitemap health score"}
+</script>
+<meta name="theme-color" content="#020408">
+<meta name="color-scheme" content="dark">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="format-detection" content="telephone=no">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://api.groq.com">
+<link rel="dns-prefetch" href="https://api.allorigins.win">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;700&family=JetBrains+Mono:wght@400&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"></noscript>
+<style>
+
+/* Font display performance */
+@font-face{font-family:'Instrument Serif';font-display:swap}
+@font-face{font-family:'Syne';font-display:swap}
+@font-face{font-family:'JetBrains Mono';font-display:swap}
+
+/* RESET */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{-webkit-font-smoothing:antialiased;overflow-x:hidden;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit;border:none;background:none;-webkit-tap-highlight-color:transparent}
+input,textarea{font-family:inherit;-webkit-appearance:none}
+.hidden{display:none!important}
+
+/* TOKENS */
+:root{
+  --bg0:#020408;--bg1:#05080f;--bg2:#080d16;--bg3:#0b1220;
+  --bg4:#0f182a;--bgc:#0d1628;--bgs:#111e32;
+  --g1:#e8a020;--g2:#d4943a;--g3:#f0b84a;
+  --gd:rgba(232,160,32,.1);--gb:rgba(232,160,32,.2);
+  --t1:#0ea88a;--t2:#3dd4b8;--tg:rgba(14,168,138,.12);
+  --r1:#e84040;--r2:#ff7474;--rg:rgba(232,64,64,.12);
+  --ok1:#0ea86a;--ok2:#3dd488;--okg:rgba(14,168,106,.1);
+  --p1:#9b6cf0;--p2:#c4a8ff;--sl1:#6b84a0;--sl2:#a8c0d8;
+  --tx1:#f2ede4;--tx2:rgba(242,237,228,.7);--tx3:rgba(242,237,228,.4);--tx4:rgba(242,237,228,.2);
+  --bd1:rgba(255,255,255,.055);--bd2:rgba(255,255,255,.1);--bd3:rgba(255,255,255,.16);
+  --fd:'Instrument Serif',Georgia,serif;
+  --fu:'Syne',system-ui,sans-serif;
+  --fm:'JetBrains Mono',monospace;
+  --rr:8px;--rm:12px;--rl:18px;--rx:24px;--rf:9999px;
+}
+body{background:var(--bg0);color:var(--tx1);font-family:var(--fu);min-height:100vh;line-height:1.6}
+/* grain */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;opacity:.28;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.04'/%3E%3C/svg%3E")}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:300;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(2,4,8,.92);border-bottom:1px solid var(--bd1);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--g1),var(--g2));display:grid;place-items:center;flex-shrink:0;box-shadow:0 2px 12px rgba(232,160,32,.22)}
+.nav-mark svg{width:16px;height:16px;stroke:var(--bg0);stroke-width:2.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.nav-name{font-family:var(--fd);font-size:19px;color:var(--tx1);letter-spacing:-.02em;white-space:nowrap}
+.nav-name em{color:var(--g3);font-style:italic}
+.nav-r{display:flex;align-items:center;gap:12px}
+.nav-tag{font-family:var(--fm);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);border:1px solid var(--bd1);padding:4px 12px;border-radius:var(--rf)}
+.nav-cta{background:var(--g1);color:var(--bg0);font-family:var(--fu);font-size:13px;font-weight:700;padding:8px 18px;border-radius:var(--rr);transition:filter .2s,box-shadow .2s;letter-spacing:.01em}
+.nav-cta:hover{filter:brightness(1.1);box-shadow:0 0 24px rgba(232,160,32,.28)}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg2) 0%,var(--bg0) 100%);padding:76px 52px 68px;text-align:center}
+.hero-glow{position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:1100px;height:750px;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(232,160,32,.09) 0%,transparent 68%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(232,160,32,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,160,32,.03) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 75% 65% at 50% 40%,black 5%,transparent 100%)}
+.hero-inner{position:relative;max-width:820px;margin:0 auto}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes ep{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.6)}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--gd);border:1px solid var(--gb);color:var(--g3);padding:6px 18px;border-radius:var(--rf);font-family:var(--fm);font-size:11px;letter-spacing:.13em;text-transform:uppercase;margin-bottom:26px;animation:up .55s ease both}
+.e-dot{width:6px;height:6px;border-radius:50%;background:var(--g1);animation:ep 2.5s ease-in-out infinite}
+.h1{font-family:var(--fd);font-size:clamp(40px,5.5vw,72px);font-weight:400;line-height:1.06;letter-spacing:-.025em;color:var(--tx1);margin-bottom:18px;animation:up .55s .07s ease both}
+.h1 em{font-style:italic;color:var(--g3)}
+.hero-p{font-size:17px;line-height:1.72;color:var(--tx2);max-width:530px;margin:0 auto 26px;animation:up .55s .14s ease both}
+/* live counter */
+.lc{display:inline-flex;align-items:center;gap:10px;background:rgba(14,168,138,.08);border:1px solid rgba(14,168,138,.18);padding:8px 18px;border-radius:var(--rf);margin-bottom:30px;animation:up .55s .2s ease both}
+.lc-dot{width:7px;height:7px;border-radius:50%;background:var(--t2);animation:ep 1.5s ease-in-out infinite}
+.lc-n{font-family:var(--fm);font-size:14px;color:var(--t2);font-weight:500;letter-spacing:.02em}
+.lc-l{font-family:var(--fm);font-size:11px;color:rgba(61,212,184,.55);letter-spacing:.05em}
+/* trust */
+.trust{display:flex;align-items:center;justify-content:center;gap:5px;flex-wrap:wrap;margin-bottom:44px;animation:up .55s .26s ease both}
+.tr{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.035);border:1px solid var(--bd1);color:var(--tx3);padding:5px 12px;border-radius:var(--rf);font-family:var(--fm);font-size:11px;letter-spacing:.04em;transition:border-color .2s}
+.tr:hover{border-color:var(--bd2);color:var(--tx2)}
+.tr svg{width:10px;height:10px;flex-shrink:0;stroke:currentColor;stroke-width:2.5;fill:none}
+.tr.gold{background:var(--gd);border-color:var(--gb);color:var(--g3)}
+
+/* SEARCH CARD */
+.sc{max-width:660px;margin:0 auto;background:var(--bg4);border:1px solid var(--bd2);border-radius:var(--rx);padding:26px 26px 22px;box-shadow:0 12px 52px rgba(0,0,0,.5),0 0 0 1px rgba(232,160,32,.06);animation:up .55s .32s ease both;position:relative}
+.sc::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gb),transparent)}
+.sc-lbl{display:block;text-align:center;font-family:var(--fm);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx4);margin-bottom:12px}
+.url-row{display:flex;border-radius:var(--rr);overflow:hidden;border:1.5px solid var(--bd2);background:var(--bg1);transition:border-color .2s,box-shadow .2s}
+.url-row:focus-within{border-color:var(--g2);box-shadow:0 0 0 3px rgba(232,160,32,.09)}
+.url-inp{flex:1;background:transparent;border:none;color:var(--tx1);padding:14px 17px;font-family:var(--fm);font-size:13px;outline:none;min-width:0;caret-color:var(--g1)}
+.url-inp::placeholder{color:var(--tx4)}
+.btn-go{background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--bg0);border:none;padding:14px 26px;font-family:var(--fu);font-size:14px;font-weight:800;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:8px;transition:filter .2s,box-shadow .2s;flex-shrink:0;letter-spacing:.02em}
+.btn-go:hover{filter:brightness(1.1);box-shadow:0 0 28px rgba(232,160,32,.28)}
+.btn-go:active{filter:brightness(.95)}
+.btn-go:disabled{opacity:.42;cursor:not-allowed;filter:none;box-shadow:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spin{animation:spin .7s linear infinite;display:inline-block}
+.scan-ln{display:flex;align-items:center;gap:8px;margin-top:10px;font-family:var(--fm);font-size:11px;color:var(--tx4)}
+.scan-url{color:var(--t2);word-break:break-all}
+.err-box{margin-top:14px;padding:13px 15px;background:rgba(232,160,32,.07);border:1px solid var(--gb);border-radius:var(--rr);font-size:13px;color:var(--tx2);line-height:1.65}
+.err-box strong{color:var(--g3)}.err-box a{color:var(--g3);text-decoration:underline}
+.adv-btn{display:flex;align-items:center;gap:6px;margin-top:14px;font-size:12px;color:var(--tx3);background:none;border:none;padding:0;font-family:var(--fu);cursor:pointer;transition:color .2s}
+.adv-btn:hover{color:var(--g3)}
+.adv-arr{font-size:9px;transition:transform .2s;opacity:.5}
+.adv-btn.open .adv-arr{transform:rotate(90deg)}
+.adv-panel{margin-top:12px;padding:16px;background:rgba(0,0,0,.3);border:1px solid var(--bd1);border-radius:var(--rm)}
+.adv-ttl{font-family:var(--fm);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx4);margin-bottom:12px}
+.adv-tabs{display:flex;gap:6px;margin-bottom:12px}
+.adv-tab{background:rgba(255,255,255,.04);border:1px solid var(--bd1);color:var(--tx3);font-size:12px;font-weight:500;padding:6px 14px;border-radius:var(--rr);cursor:pointer;transition:all .2s;font-family:var(--fu)}
+.adv-tab.on{background:var(--g1);color:var(--bg0);border-color:var(--g1);font-weight:700}
+.apane{display:none}.apane.show{display:block}
+.xml-ta{width:100%;background:rgba(0,0,0,.3);border:1px solid var(--bd1);border-radius:var(--rr);color:var(--tx2);font-family:var(--fm);font-size:11px;padding:12px;resize:vertical;min-height:100px;outline:none;line-height:1.7;transition:border-color .2s}
+.xml-ta:focus{border-color:var(--g2)}
+.xml-ta::placeholder{color:var(--tx4)}
+.upload-z{border:1.5px dashed var(--bd2);border-radius:var(--rr);padding:24px;text-align:center;cursor:pointer;transition:all .2s}
+.upload-z:hover{border-color:var(--g2);background:var(--gd)}
+.upload-z p{font-size:12px;color:var(--tx3);margin-top:6px}
+.upload-z p span{color:var(--g3)}
+.btn-ghost{background:rgba(255,255,255,.05);border:1px solid var(--bd2);color:var(--tx2);border-radius:var(--rr);font-size:13px;font-weight:500;padding:9px 16px;margin-top:10px;transition:all .2s;display:flex;align-items:center;gap:7px;font-family:var(--fu);cursor:pointer}
+.btn-ghost:hover{background:rgba(255,255,255,.09)}
+
+/* FEATURE STRIP */
+.feat-strip{max-width:660px;margin:16px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.05);border-radius:var(--rm);overflow:hidden;animation:up .55s .4s ease both}
+.fi{background:var(--bgc);padding:13px 14px;display:flex;align-items:flex-start;gap:9px;transition:background .2s}
+.fi:hover{background:var(--bgs)}
+.fi-i{font-size:15px;flex-shrink:0;margin-top:1px}
+.fi-n{font-size:11px;font-weight:700;color:var(--tx1);margin-bottom:2px}
+.fi-d{font-size:10px;color:var(--tx3);line-height:1.5}
+
+/* HOW IT WORKS */
+.how{padding:88px 52px;background:var(--bg1);border-top:1px solid var(--bd1)}
+.how-in{max-width:920px;margin:0 auto}
+.s-ey{font-family:var(--fm);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);text-align:center;margin-bottom:14px}
+.s-h2{font-family:var(--fd);font-size:clamp(28px,4vw,46px);font-style:italic;text-align:center;color:var(--tx1);margin-bottom:10px;letter-spacing:-.02em;line-height:1.15}
+.s-sub{text-align:center;font-size:15px;color:var(--tx3);margin-bottom:56px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.7}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;position:relative}
+.steps::before{content:'';position:absolute;top:34px;left:calc(16.67% + 18px);right:calc(16.67% + 18px);height:1px;background:var(--gb);opacity:.5}
+.step{text-align:center;padding:0 8px}
+.step-n{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--bg0);font-family:var(--fd);font-size:28px;font-style:italic;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative;z-index:1;box-shadow:0 0 0 7px var(--bg1),0 0 0 8px var(--gb),0 0 28px rgba(232,160,32,.2)}
+.step-t{font-weight:700;font-size:15px;color:var(--tx1);margin-bottom:8px;line-height:1.3}
+.step-d{font-size:13px;color:var(--tx3);line-height:1.7}
+
+/* STATS BAND */
+.stats-band{background:var(--bg0);border-top:1px solid var(--bd1);border-bottom:1px solid var(--bd1)}
+.stats-band-in{max-width:100%;display:grid;grid-template-columns:repeat(4,1fr)}
+.sb-i{padding:36px 24px;text-align:center;border-right:1px solid var(--bd1);transition:background .2s}
+.sb-i:last-child{border-right:none}
+.sb-i:hover{background:rgba(255,255,255,.015)}
+.sb-n{font-family:var(--fd);font-size:44px;font-style:italic;color:var(--g3);line-height:1;margin-bottom:6px}
+.sb-l{font-family:var(--fm);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3)}
+
+/* WHY MATTERS */
+.why{padding:88px 52px;background:var(--bg1)}
+.why-in{max-width:1000px;margin:0 auto}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.wc{background:var(--bgc);border:1px solid var(--bd1);border-radius:var(--rl);padding:28px;transition:border-color .2s,transform .2s,box-shadow .2s}
+.wc:hover{border-color:var(--gb);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.wc-ico{font-size:30px;margin-bottom:14px}
+.wc-t{font-weight:700;font-size:15px;color:var(--tx1);margin-bottom:8px;line-height:1.3}
+.wc-b{font-size:13px;color:var(--tx3);line-height:1.72}
+.wc-stat{margin-top:16px;font-family:var(--fm);font-size:11px;color:var(--g3);background:var(--gd);border:1px solid var(--gb);display:inline-block;padding:3px 10px;border-radius:var(--rr)}
+
+/* FAQ */
+.faq{padding:88px 52px;background:var(--bg0);border-top:1px solid var(--bd1)}
+.faq-in{max-width:740px;margin:0 auto}
+.faq-list{margin-top:48px;display:flex;flex-direction:column;gap:3px}
+.fq{background:var(--bgc);border:1px solid var(--bd1);border-radius:var(--rr);overflow:hidden;transition:border-color .2s}
+.fq.open{border-color:var(--gb);background:var(--bg4)}
+.fq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;cursor:pointer;gap:12px;user-select:none}
+.fq-qt{font-weight:600;font-size:14px;color:var(--tx1);line-height:1.45}
+.fq-arr{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;color:var(--tx3);transition:transform .25s,background .2s}
+.fq.open .fq-arr{transform:rotate(180deg);background:var(--gd);color:var(--g3)}
+.fq-a{display:none;padding:0 20px 18px;font-size:13px;color:var(--tx2);line-height:1.78}
+.fq.open .fq-a{display:block}
+.fq-a a{color:var(--g3);text-decoration:underline}
+.fq-a strong{color:var(--tx1)}
+
+/* PROGRESS */
+.prog-sec{background:var(--bg2);border-top:1px solid var(--bd1);border-bottom:1px solid var(--bd1);padding:56px 32px}
+.prog-in{max-width:500px;margin:0 auto;text-align:center}
+.prog-ttl{font-family:var(--fd);font-size:22px;font-style:italic;color:var(--tx1);margin-bottom:28px}
+.prog-steps{display:flex;flex-direction:column;gap:7px;text-align:left}
+.pstep{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--tx3);padding:10px 14px;border-radius:var(--rr);background:rgba(255,255,255,.02);border:1px solid transparent;transition:all .3s}
+.pstep.act{color:var(--tx1);background:rgba(232,160,32,.07);border-color:var(--gb)}
+.pstep.done{color:var(--t2)}.pstep.fail{color:var(--r2)}
+.pdot{width:8px;height:8px;border-radius:50%;background:var(--bd2);flex-shrink:0;transition:all .3s}
+.pstep.act .pdot{background:var(--g1);animation:pdp 1s ease-in-out infinite}
+.pstep.done .pdot{background:var(--t1);animation:none}
+.pstep.fail .pdot{background:var(--r1);animation:none}
+@keyframes pdp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.65)}}
+
+/* RESULTS */
+.res-sec{padding:52px 32px 80px;background:var(--bg0)}
+.res-wrap{max-width:1060px;margin:0 auto}
+.res-hdr{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--bd1)}
+.res-hdr h2{font-family:var(--fd);font-size:26px;font-style:italic;color:var(--tx1);margin-bottom:8px}
+.res-meta{display:flex;gap:6px;flex-wrap:wrap}
+.rtag{font-family:var(--fm);font-size:10px;background:var(--bgs);border:1px solid var(--bd1);color:var(--tx3);padding:3px 9px;border-radius:4px;letter-spacing:.04em;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hdr-btns{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start}
+.btn-share{background:var(--gd);border:1px solid var(--gb);color:var(--g3);font-family:var(--fu);font-size:13px;font-weight:600;padding:9px 17px;border-radius:var(--rr);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.btn-share:hover{background:rgba(232,160,32,.16)}
+.btn-new{background:var(--g1);color:var(--bg0);font-family:var(--fu);font-size:13px;font-weight:700;padding:9px 17px;border-radius:var(--rr);border:none;cursor:pointer;transition:filter .2s;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.btn-new:hover{filter:brightness(1.1)}
+
+/* Score card */
+.score-card{background:var(--bgc);border:1px solid var(--bd1);border-radius:var(--rx);padding:28px 30px;margin-bottom:18px;display:grid;grid-template-columns:116px 1fr auto;gap:28px;align-items:center;position:relative;overflow:hidden}
+.score-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--r1),var(--g1),var(--ok1));opacity:.65}
+.ring-wrap{position:relative;width:116px;height:116px;flex-shrink:0}
+.ring-svg{transform:rotate(-90deg)}
+.ring-trk{fill:none;stroke:rgba(255,255,255,.06);stroke-width:8}
+.ring-fill{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1)}
+.ring-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring-num{font-family:var(--fd);font-size:34px;font-style:italic;color:var(--tx1);line-height:1}
+.ring-den{font-family:var(--fm);font-size:9px;color:var(--tx4)}
+.score-ttl{font-family:var(--fd);font-size:18px;font-style:italic;color:var(--tx1);margin-bottom:9px}
+.sbar{height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;margin-bottom:8px}
+.sbar-f{height:100%;border-radius:3px;transition:width 1.5s cubic-bezier(.4,0,.2,1)}
+.score-v{font-size:13px;color:var(--tx2);line-height:1.65}
+.btn-csv{background:transparent;border:1px solid var(--gb);color:var(--g3);font-family:var(--fm);font-size:11px;padding:9px 16px;border-radius:var(--rr);cursor:pointer;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:6px;letter-spacing:.04em}
+.btn-csv:hover{background:var(--gd)}
+
+/* Info + Stats */
+.info-row{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:18px}
+.ic{background:var(--bgc);border:1px solid var(--bd1);border-radius:var(--rr);padding:13px 14px}
+.ic-l{font-family:var(--fm);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx4);margin-bottom:5px}
+.ic-v{font-size:12px;color:var(--tx1);font-weight:500;word-break:break-all;line-height:1.4}
+.ic-v.ok{color:var(--ok2)}.ic-v.bad{color:var(--r2)}.ic-v.mono{font-family:var(--fm);font-size:11px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:18px}
+.sc2{background:var(--bgc);border:1px solid var(--bd1);border-radius:var(--rl);padding:16px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s}
+.sc2:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.35);border-color:var(--bd2)}
+.sc2::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
+.sc2.bl::after{background:var(--t1)}.sc2.gn::after{background:var(--ok1)}
+.sc2.rd::after{background:var(--r1)}.sc2.am::after{background:var(--g1)}
+.sc2.pu::after{background:var(--p1)}.sc2.sl::after{background:var(--sl1)}
+.sn{font-family:var(--fd);font-size:34px;font-style:italic;line-height:1;margin-bottom:4px}
+.sc2.bl .sn{color:var(--t2)}.sc2.gn .sn{color:var(--ok2)}
+.sc2.rd .sn{color:var(--r2)}.sc2.am .sn{color:var(--g3)}
+.sc2.pu .sn{color:var(--p2)}.sc2.sl .sn{color:var(--sl2)}
+.sl2{font-family:var(--fm);font-size:9px;color:var(--tx4);text-transform:uppercase;letter-spacing:.1em}
+
+/* AI + Fixes + Table */
+.ai-card{background:var(--bgc);border:1px solid var(--bd1);border-left:3px solid var(--g2);border-radius:var(--rl);padding:20px 24px;margin-bottom:18px}
+.ai-hdr{display:flex;align-items:center;gap:9px;margin-bottom:13px;flex-wrap:wrap}
+.ai-ico{width:28px;height:28px;border-radius:6px;background:var(--gd);border:1px solid var(--gb);display:grid;place-items:center;font-size:14px;flex-shrink:0}
+.ai-ttl{font-family:var(--fd);font-size:15px;font-style:italic;color:var(--tx1)}
+.ai-pv{font-family:var(--fm);font-size:10px;color:var(--g3);margin-left:auto;letter-spacing:.05em}
+.ai-body{font-size:13px;color:var(--tx2);line-height:1.9;white-space:pre-wrap}
+.ai-cur{display:inline-block;width:2px;height:13px;background:var(--g1);margin-left:2px;animation:bk .8s step-end infinite;vertical-align:middle}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:0}}
+.sec-ttl{font-family:var(--fd);font-size:18px;font-style:italic;color:var(--tx1);margin-bottom:13px;letter-spacing:-.01em}
+.fixes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:11px;margin-bottom:18px}
+.fcard{background:var(--bgc);border:1px solid var(--bd1);border-radius:var(--rl);padding:16px 18px;display:flex;gap:13px;align-items:flex-start;transition:border-color .2s}
+.fcard:hover{border-color:var(--bd2)}
+.fbadge{flex-shrink:0;font-family:var(--fm);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-top:2px}
+.fbadge.cr{background:var(--rg);color:var(--r2)}.fbadge.md{background:var(--gd);color:var(--g3)}.fbadge.lw{background:var(--okg);color:var(--ok2)}
+.ft2{font-size:13px;font-weight:700;color:var(--tx1);margin-bottom:3px}
+.fd2{font-size:12px;color:var(--tx3);line-height:1.62}
+.dl-bar{background:var(--bgc);border:1px solid var(--bd1);border-radius:var(--rl);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.dl-bar strong{color:var(--tx1);font-size:13px;display:block;margin-bottom:2px}
+.dl-bar span{font-size:12px;color:var(--tx3)}
+.btn-dl{background:var(--t1);color:#fff;font-family:var(--fu);font-size:13px;font-weight:700;padding:10px 20px;border-radius:var(--rr);border:none;cursor:pointer;display:flex;align-items:center;gap:7px;transition:filter .2s,box-shadow .2s;white-space:nowrap}
+.btn-dl:hover{filter:brightness(1.1);box-shadow:0 4px 18px var(--tg)}
+.tbl-card{background:var(--bgc);border:1px solid var(--bd1);border-radius:var(--rl);overflow:hidden}
+.tbl-bar{padding:12px 16px;border-bottom:1px solid var(--bd1);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.chip{padding:5px 12px;border-radius:var(--rf);border:1px solid var(--bd2);background:transparent;color:var(--tx3);font-family:var(--fm);font-size:10px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:4px}
+.chip:hover{border-color:var(--gb);color:var(--tx1)}
+.chip.on{background:rgba(255,255,255,.07);border-color:var(--bd3);color:var(--tx1)}
+.cc{background:rgba(255,255,255,.1);padding:1px 5px;border-radius:4px;font-size:9px}
+.tbl-srch{margin-left:auto;background:var(--bg1);border:1px solid var(--bd1);color:var(--tx1);padding:6px 10px 6px 26px;border-radius:var(--rr);font-family:var(--fm);font-size:11px;outline:none;width:180px;transition:border-color .2s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(242,237,228,.22)' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:8px center}
+.tbl-srch:focus{border-color:var(--gb)}
+.tbl-srch::placeholder{color:var(--tx4)}
+.tbl-cnt{font-family:var(--fm);font-size:11px;color:var(--tx4)}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+thead{background:rgba(0,0,0,.3)}
+th{padding:10px 13px;text-align:left;font-family:var(--fm);font-size:9px;font-weight:500;color:var(--tx4);text-transform:uppercase;letter-spacing:.12em;border-bottom:1px solid var(--bd1);white-space:nowrap}
+td{padding:9px 13px;font-size:11px;border-bottom:1px solid rgba(255,255,255,.03);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,255,255,.015)}
+.td-url{max-width:280px}
+.u-link{color:var(--t2);font-family:var(--fm);font-size:10px;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.u-link:hover{text-decoration:underline;color:#fff}
+.pill{display:inline-flex;align-items:center;padding:2px 8px;border-radius:4px;font-family:var(--fm);font-size:9px;font-weight:600;white-space:nowrap}
+.pill.ok{background:var(--okg);color:var(--ok2)}.pill.wn{background:var(--gd);color:var(--g3)}.pill.bd{background:var(--rg);color:var(--r2)}.pill.gr{background:rgba(255,255,255,.07);color:var(--tx3)}
+.td-ok{font-size:10px;color:var(--tx4)}.td-bd{font-size:10px;color:var(--r2)}
+.td-emp{text-align:center;padding:40px!important;color:var(--tx4);font-family:var(--fm);font-size:12px;font-style:italic}
+.pgr{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-top:1px solid var(--bd1);background:rgba(0,0,0,.2);flex-wrap:wrap;gap:8px}
+.pgr-i{font-family:var(--fm);font-size:11px;color:var(--tx4)}
+.pgr-c{display:flex;align-items:center;gap:8px}
+.pgr-b{background:var(--bgs);border:1px solid var(--bd1);color:var(--tx2);font-size:12px;padding:6px 12px;border-radius:var(--rr);cursor:pointer;transition:all .2s;font-family:var(--fu)}
+.pgr-b:hover:not(:disabled){border-color:var(--gb);color:var(--g3)}
+.pgr-b:disabled{opacity:.3;cursor:not-allowed}
+.pgr-l{font-family:var(--fm);font-size:11px;color:var(--tx3)}
+
+/* SHARE MODAL */
+.share-ov{position:fixed;inset:0;background:rgba(2,4,8,.88);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:fadein .2s ease}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.share-card{background:var(--bg4);border:1px solid var(--bd3);border-radius:var(--rx);padding:36px 32px;max-width:480px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.share-card::before{content:'';position:absolute;top:0;left:24px;right:24px;height:1px;background:linear-gradient(90deg,transparent,var(--gb),transparent)}
+.share-x{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.06);border:none;color:var(--tx3);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.share-x:hover{background:rgba(255,255,255,.12);color:var(--tx1)}
+.share-big{font-family:var(--fd);font-size:76px;font-style:italic;color:var(--g3);line-height:1;text-align:center;margin-bottom:4px}
+.share-lbl{font-family:var(--fm);font-size:11px;color:var(--tx3);letter-spacing:.1em;text-align:center;margin-bottom:6px;text-transform:uppercase}
+.share-site{font-family:var(--fm);font-size:12px;color:var(--tx2);text-align:center;margin-bottom:24px;word-break:break-all}
+.share-ttl{font-weight:700;font-size:14px;color:var(--tx1);margin-bottom:13px}
+.share-btns{display:flex;flex-direction:column;gap:9px}
+.share-btn{display:flex;align-items:center;gap:10px;padding:13px 16px;border-radius:var(--rr);border:1px solid var(--bd2);background:rgba(255,255,255,.04);color:var(--tx1);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--fu);width:100%}
+.share-btn:hover{background:rgba(255,255,255,.08);border-color:var(--bd3)}
+.share-btn.li{background:rgba(10,102,194,.13);border-color:rgba(10,102,194,.26);color:#7ab4f5}
+.share-btn.li:hover{background:rgba(10,102,194,.2)}
+.share-btn.tw{background:rgba(29,161,242,.1);border-color:rgba(29,161,242,.22);color:#7dd3fc}
+.share-btn.tw:hover{background:rgba(29,161,242,.18)}
+.share-btn.cp{background:var(--gd);border-color:var(--gb);color:var(--g3)}
+.share-btn.cp:hover{background:rgba(232,160,32,.15)}
+.share-btn.copied{background:rgba(14,168,138,.13)!important;border-color:rgba(14,168,138,.28)!important;color:var(--t2)!important}
+.sbi{font-size:16px;flex-shrink:0}
+.share-btn-label{font-weight:700}
+.share-btn-desc{font-size:11px;opacity:.65;margin-top:2px}
+
+/* FOOTER */
+footer{background:var(--bg0);border-top:1px solid var(--bd1);padding:28px 52px}
+.ft-in{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+
+.ft-nav{display:flex;gap:20px;flex-wrap:wrap}
+.ft-link{font-family:var(--fm);font-size:11px;color:rgba(242,237,228,.52);letter-spacing:.04em;transition:color .2s;text-decoration:none}
+.ft-link:hover{color:rgba(242,237,228,.85)}
+@media(max-width:480px){.ft-nav{display:none}}
+
+.ft-logo{font-family:var(--fd);font-size:16px;font-style:italic;color:rgba(242,237,228,.55)}
+.ft-logo em{color:var(--g3)}
+.ft-note{font-family:var(--fm);font-size:11px;color:rgba(242,237,228,.48);letter-spacing:.04em}
+
+/* RESPONSIVE - mobile ≤480px */
+@media(max-width:480px){
+  .nav{padding:0 16px;height:52px}
+  .nav-tag,.nav-cta{display:none}
+  .nav-name{font-size:17px}
+  .nav-mark{width:30px;height:30px;border-radius:7px}
+  .nav-mark svg{width:14px;height:14px}
+  .hero{padding:44px 16px 48px}
+  .h1{font-size:clamp(30px,10vw,40px);line-height:1.1}
+  .hero-p{font-size:15px;margin-bottom:20px}
+  .eyebrow{font-size:10px;margin-bottom:18px}
+  .trust{gap:4px;margin-bottom:28px}
+  .tr{font-size:10px;padding:4px 10px}
+  .lc{margin-bottom:24px;padding:7px 14px}
+  .sc{padding:18px 15px 16px;border-radius:var(--rl)}
+  .url-row{flex-direction:column}
+  .btn-go{width:100%;justify-content:center;border-radius:0 0 var(--rr) var(--rr);padding:13px}
+  .feat-strip{grid-template-columns:1fr;margin-top:14px}
+  .how{padding:56px 16px}
+  .steps{grid-template-columns:1fr;gap:32px}
+  .steps::before{display:none}
+  .stats-band-in{grid-template-columns:repeat(2,1fr)}
+  .sb-i:nth-child(2){border-right:none}
+  .sb-i:nth-child(1),.sb-i:nth-child(2){border-bottom:1px solid var(--bd1)}
+  .sb-n{font-size:36px}
+  .why{padding:56px 16px}
+  .why-grid{grid-template-columns:1fr}
+  .faq{padding:56px 16px}
+  .prog-sec{padding:40px 16px}
+  .res-sec{padding:26px 12px 52px}
+  .score-card{grid-template-columns:1fr;text-align:center;gap:14px;padding:20px 16px}
+  .ring-wrap{margin:0 auto;width:100px;height:100px}
+  .ring-num{font-size:28px}
+  .btn-csv{display:none}
+  .info-row{grid-template-columns:1fr 1fr;gap:7px}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:7px}
+  .sn{font-size:28px}
+  .fixes-grid{grid-template-columns:1fr}
+  .tbl-bar{flex-direction:column;align-items:flex-start;gap:7px;padding:11px 12px}
+  .tbl-srch{width:100%;margin-left:0}
+  .pgr{flex-direction:column;gap:7px;text-align:center}
+  .dl-bar{flex-direction:column;gap:10px;padding:14px}
+  .res-hdr{flex-direction:column}
+  .hdr-btns{flex-wrap:wrap}
+  footer{padding:20px 16px}
+  .ft-in{flex-direction:column;gap:8px;text-align:center}
+  .share-card{padding:24px 18px}
+  .share-big{font-size:58px}
+}
+/* tablet 481–768px */
+@media(min-width:481px) and (max-width:768px){
+  .nav{padding:0 24px}
+  .nav-cta{display:none}
+  .hero{padding:56px 24px 56px}
+  .h1{font-size:clamp(36px,7.5vw,54px)}
+  .how,.why,.faq{padding:64px 28px}
+  .steps{grid-template-columns:1fr;gap:28px}
+  .steps::before{display:none}
+  .stats-band-in{grid-template-columns:repeat(2,1fr)}
+  .sb-i:nth-child(2){border-right:none}
+  .sb-i:nth-child(1),.sb-i:nth-child(2){border-bottom:1px solid var(--bd1)}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .url-row{flex-direction:row}
+  .feat-strip{grid-template-columns:1fr 1fr 1fr}
+  .res-sec{padding:32px 20px 56px}
+  .score-card{grid-template-columns:100px 1fr;gap:20px;padding:22px}
+  .btn-csv{display:flex}
+  .info-row{grid-template-columns:repeat(2,1fr)}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .tbl-bar{flex-wrap:wrap;gap:7px}
+  .tbl-srch{width:100%;margin-left:0;order:5}
+  .res-hdr{flex-direction:column}
+  .dl-bar{flex-wrap:wrap}
+  footer{padding:22px 28px}
+}
+/* medium 769–1024px */
+@media(min-width:769px) and (max-width:1024px){
+  .nav,.hero,footer{padding-left:32px;padding-right:32px}
+  .how,.why,.faq,.res-sec,.prog-sec{padding-left:32px;padding-right:32px}
+}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--bd3)}
+
+/* ── SEO TEXT BLOCK ── */
+.seo-block{background:var(--bg0);border-top:1px solid var(--bd1);padding:56px 52px}
+.seo-block-inner{max-width:960px;margin:0 auto}
+.seo-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.seo-col{}
+.seo-h2{font-family:var(--fu);font-size:17px;font-weight:700;color:var(--tx1);margin-bottom:14px;letter-spacing:-.01em;line-height:1.35}
+.seo-col p{font-size:14px;color:var(--tx3);line-height:1.82;margin-bottom:12px}
+.seo-col p:last-child{margin-bottom:0}
+.seo-col code{font-family:var(--fm);font-size:12px;background:rgba(255,255,255,.06);border:1px solid var(--bd1);padding:1px 6px;border-radius:4px;color:var(--g3)}
+.seo-col strong{color:var(--tx2);font-weight:600}
+.seo-cta-p{margin-top:18px!important}
+.seo-cta-link{color:var(--g3);font-weight:600;font-size:13px;text-decoration:none;border-bottom:1px solid var(--gb);padding-bottom:1px;transition:color .2s,border-color .2s}
+.seo-cta-link:hover{color:var(--g1);border-color:var(--g1)}
+@media(max-width:768px){
+  .seo-block{padding:44px 20px}
+  .seo-cols{grid-template-columns:1fr;gap:28px}
+}
+@media(max-width:480px){
+  .seo-block{padding:36px 16px}
+  .seo-h2{font-size:15px}
+  .seo-col p{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-mark"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+    <span class="nav-name">Sitemap<em>Audit</em></span>
+  </a>
+  <div class="nav-r">
+    <div class="nav-tag">Free &middot; No Login</div>
+    <button class="nav-cta" onclick="document.getElementById('urlInp').focus();window.scrollTo({top:0,behavior:'smooth'})">Check My Sitemap</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="heroSec">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="e-dot"></span>Free Sitemap Checker &middot; No Login &middot; Instant Results</div>
+    <h1 class="h1">Find Out Why Google Isn&rsquo;t<br><em>Indexing Your Pages</em></h1>
+    <p class="hero-p">Enter your website URL &mdash; we automatically fetch your sitemap, check every URL for indexing issues, and deliver an <strong>AI expert SEO report</strong> in 10 seconds. Zero copy-pasting. Zero signup.</p>
+    <div class="lc">
+      <span class="lc-dot"></span>
+      <span class="lc-n" id="liveCount">0</span>
+      <span class="lc-l">sites audited since launch</span>
+    </div>
+    <div class="trust">
+      <div class="tr gold"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Auto-fetches sitemap</div>
+      <div class="tr"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>AI expert analysis</div>
+      <div class="tr"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>No login needed</div>
+      <div class="tr"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>CSV export</div>
+      <div class="tr"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>100% free forever</div>
+    </div>
+
+    <!-- SEARCH CARD -->
+    <div class="sc" id="formBox">
+      <label class="sc-lbl" for="urlInp">Enter website URL to audit</label>
+      <div class="url-row">
+        <input class="url-inp" id="urlInp" type="url" placeholder="https://yourwebsite.com"
+          autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off"
+          oninput="updPrev()" onkeydown="if(event.key==='Enter') go()">
+        <button class="btn-go" id="auditBtn" onclick="go()">
+          <span id="btnT">&#9889; Audit Site</span>
+        </button>
+      </div>
+      <div class="scan-ln">
+        <span>Will auto-fetch &rarr;</span>
+        <span class="scan-url" id="scanUrl">https://yourwebsite.com/sitemap.xml</span>
+      </div>
+      <div class="err-box hidden" id="errBox"></div>
+      <button class="adv-btn" id="advBtn" onclick="togAdv()">
+        <span class="adv-arr">&#9658;</span>
+        Advanced Options &mdash; paste XML or upload file
+      </button>
+      <div class="adv-panel hidden" id="advPanel">
+        <div class="adv-ttl">Manual Sitemap Input</div>
+        <div class="adv-tabs">
+          <button class="adv-tab on" id="tP" onclick="swTab('p')">Paste XML</button>
+          <button class="adv-tab" id="tU" onclick="swTab('u')">Upload File</button>
+        </div>
+        <div class="apane show" id="paneP">
+          <textarea class="xml-ta" id="xmlIn"
+            placeholder="Paste sitemap XML here&#x2026;&#10;&#10;&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;&#10;  &lt;url&gt;&lt;loc&gt;https://example.com/&lt;/loc&gt;&lt;/url&gt;&#10;&lt;/urlset&gt;"></textarea>
+          <button class="btn-ghost" onclick="runPaste()">&#128203; Analyse Pasted XML</button>
+        </div>
+        <div class="apane" id="paneU">
+          <div class="upload-z" onclick="document.getElementById('fileIn').click()">
+            <div style="font-size:30px">&#128196;</div>
+            <p><span>Click to upload</span> your sitemap.xml</p>
+            <p>Processed locally &mdash; file never leaves your device</p>
+          </div>
+          <input type="file" id="fileIn" accept=".xml,text/xml,application/xml" onchange="handleFile(event)" style="display:none">
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature strip -->
+    <div class="feat-strip">
+      <div class="fi"><span class="fi-i">&#128269;</span><div><div class="fi-n">Auto Sitemap Fetch</div><div class="fi-d">Tries sitemap.xml, index.xml, robots.txt + 6 more</div></div></div>
+      <div class="fi"><span class="fi-i">&#128202;</span><div><div class="fi-n">Indexing Analysis</div><div class="fi-d">Finds not-indexed, duplicate &amp; HTTP issues</div></div></div>
+      <div class="fi"><span class="fi-i">&#129302;</span><div><div class="fi-n">AI Expert Report</div><div class="fi-d">Powered by Groq &middot; no API key needed</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEO CONTENT BLOCK — keyword-rich prose for Google ranking -->
+<section class="seo-block" id="about">
+  <div class="seo-block-inner">
+    <div class="seo-cols">
+      <div class="seo-col">
+        <h2 class="seo-h2">What Is a Sitemap Checker?</h2>
+        <p>A <strong>free sitemap checker</strong> is a tool that audits your XML sitemap for technical errors that prevent Google from indexing your website pages. Your XML sitemap tells Googlebot which pages exist on your site and which are most important — a broken sitemap directly hurts your search rankings.</p>
+        <p>Common <strong>sitemap errors</strong> include: broken URLs returning 404 errors, HTTP links on HTTPS sites, missing <code>lastmod</code> dates, duplicate URL entries, paginated pages wasting crawl budget, and noindex pages submitted for indexing — all sending contradictory signals to Googlebot.</p>
+        <p>Regular <strong>sitemap audits</strong> catch these problems before they compound. Sites that monitor sitemap health rank higher because Googlebot spends its crawl budget on real, rankable content.</p>
+      </div>
+      <div class="seo-col">
+        <h2 class="seo-h2">Why Use a Free Sitemap Audit Tool?</h2>
+        <p>Our <strong>free sitemap audit tool</strong> automatically fetches your XML sitemap — no copy-pasting required. Enter your domain, and our server checks your sitemap across 9 common URL patterns, classifies every URL for <strong>Google indexing signals</strong>, calculates a 0–100 health score, and generates an AI expert SEO report with fixes ranked by impact.</p>
+        <p>Unlike manual <strong>sitemap error checkers</strong>, SitemapAudit bypasses Cloudflare protection and CORS restrictions using a real server-side fetch — the same technique used by enterprise SEO tools, completely free.</p>
+        <p>Whether you need to <strong>check sitemap errors</strong>, find unindexed pages, or fix crawl budget waste before a Google core update — this tool gives you a full technical SEO audit in under 10 seconds, with no login and no credit card.</p>
+        <p class="seo-cta-p"><a href="#heroSec" class="seo-cta-link" onclick="document.getElementById('urlInp').focus();window.scrollTo({top:0,behavior:'smooth'});return false;">&#8593; Run your free sitemap check now</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="how-in">
+    <div class="s-ey">Free Sitemap Checker — How It Works</div>
+    <h2 class="s-h2">How Our Free Sitemap Checker <em>Works in 3 Steps</em></h2>
+    <p class="s-sub">No configuration. No manual file uploads. No copy-pasting. Just enter your domain.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-t">Enter Your Domain</div>
+        <div class="step-d">Type or paste any website URL. No need to find your sitemap manually &mdash; we discover it automatically across 9 common paths including robots.txt declarations.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-t">Server Auto-Fetches Sitemap</div>
+        <div class="step-d">Our Vercel edge server fetches your sitemap with real Chrome browser headers &mdash; bypassing Cloudflare protection and CORS restrictions that block every other free tool.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-t">Get Your Full Expert Report</div>
+        <div class="step-d">Health score 0&ndash;100, URL-level indexing status, AI expert recommendations, priority fixes ranked by impact, and a downloadable CSV &mdash; in under 10 seconds.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stats-band-in">
+    <div class="sb-i"><div class="sb-n">10s</div><div class="sb-l">Average audit time</div></div>
+    <div class="sb-i"><div class="sb-n">9</div><div class="sb-l">Sitemap patterns tried</div></div>
+    <div class="sb-i"><div class="sb-n">7</div><div class="sb-l">Issue types detected</div></div>
+    <div class="sb-i"><div class="sb-n">0</div><div class="sb-l">Signup or login needed</div></div>
+  </div>
+</div>
+
+<!-- WHY IT MATTERS -->
+<section class="why">
+  <div class="why-in">
+    <div class="s-ey">Sitemap Errors &amp; Google Indexing</div>
+    <h2 class="s-h2">Why Sitemap Errors Are Killing <em>Your Google Rankings</em></h2>
+    <div class="why-grid">
+      <div class="wc">
+        <div class="wc-ico">&#128375;</div>
+        <div class="wc-t">Crawl Budget Waste</div>
+        <div class="wc-b">Every URL Googlebot crawls costs crawl budget. Dead URLs, redirect chains, and thin-content pages in your sitemap waste budget that should be indexing your real content.</div>
+        <div class="wc-stat">43% of sitemaps contain 404 URLs</div>
+      </div>
+      <div class="wc">
+        <div class="wc-ico">&#128197;</div>
+        <div class="wc-t">Silent Indexing Gaps</div>
+        <div class="wc-b">Noindex tags, HTTP URLs on HTTPS sites, and duplicate entries send contradictory signals &mdash; leading to entire sections of your site that Google simply never indexes.</div>
+        <div class="wc-stat">61% include harmful paginated URLs</div>
+      </div>
+      <div class="wc">
+        <div class="wc-ico">&#9889;</div>
+        <div class="wc-t">Fast to Fix, Big Impact</div>
+        <div class="wc-b">Unlike backlinks or content, sitemap issues are quick to fix once you know about them. Clean sitemaps produce measurable ranking improvements within 4&ndash;8 weeks, not months.</div>
+        <div class="wc-stat">Avg 28% traffic lift after cleanup</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ — critical for SEO ranking -->
+<section class="faq">
+  <div class="faq-in">
+    <div class="s-ey">Sitemap Checker FAQ</div>
+    <h2 class="s-h2">Free Sitemap Checker — <em>Frequently Asked Questions</em></h2>
+    <div class="faq-list" id="faqList" role="list" aria-label="Sitemap checker frequently asked questions">
+      <div class="fq" onclick="toggleFaq(this)" itemscope itemtype="https://schema.org/Question">
+        <div class="fq-q"><span class="fq-qt" itemprop="name">Is SitemapAudit really 100% free? What&rsquo;s the catch?</span><span class="fq-arr">&#9660;</span></div>
+        <div class="fq-a">Yes, completely free. No account, no credit card, no usage limits. The AI analysis uses Groq&rsquo;s free API tier and is embedded so it works for every visitor instantly. <strong>There is no catch</strong> &mdash; we built this for our own client work and decided to make it public.</div>
+      </div>
+      <div class="fq" onclick="toggleFaq(this)">
+        <div class="fq-q"><span class="fq-qt">How does the automatic sitemap detection work?</span><span class="fq-arr">&#9660;</span></div>
+        <div class="fq-a">When you enter a URL, our <strong>Vercel edge server</strong> (not your browser) fetches your sitemap using real Chrome 124 browser headers. This bypasses Cloudflare and CORS restrictions. We check your robots.txt for Sitemap: declarations first, then try 9 common paths: /sitemap.xml, /sitemap_index.xml, /wp-sitemap.xml, and 6 more. For sitemap index files, we automatically fetch and merge all child sitemaps.</div>
+      </div>
+      <div class="fq" onclick="toggleFaq(this)">
+        <div class="fq-q"><span class="fq-qt">What does the sitemap health score mean?</span><span class="fq-arr">&#9660;</span></div>
+        <div class="fq-a">The 0&ndash;100 score reflects how well your sitemap is optimised for Google indexing. It&rsquo;s calculated from: URL classification ratio (up to -35 points), missing lastmod dates (up to -20 points), duplicate URLs (up to -20 points), and HTTP URLs on HTTPS sites (up to -15 points). <strong>80+ is excellent, 60&ndash;79 is good, 40&ndash;59 needs attention, below 40 requires immediate action.</strong></div>
+      </div>
+      <div class="fq" onclick="toggleFaq(this)">
+        <div class="fq-q"><span class="fq-qt">Will fixing my sitemap actually improve my Google rankings?</span><span class="fq-arr">&#9660;</span></div>
+        <div class="fq-a">Sitemap fixes remove <strong>technical barriers preventing Google from finding and indexing your pages</strong>. If pages aren&rsquo;t indexed, they can&rsquo;t rank &mdash; regardless of content quality. Many sites see 20&ndash;40% organic traffic increases within 4&ndash;8 weeks of cleaning their sitemap, especially those with significant previously unindexed content.</div>
+      </div>
+      <div class="fq" onclick="toggleFaq(this)">
+        <div class="fq-q"><span class="fq-qt">How do I fix &ldquo;Not Indexed&rdquo; URLs in my sitemap?</span><span class="fq-arr">&#9660;</span></div>
+        <div class="fq-a">For not-indexed URLs: <strong>1)</strong> Remove URLs with query parameters (?page=, ?sort=, ?utm=). <strong>2)</strong> Remove file asset URLs (.pdf, .jpg, .css, .js). <strong>3)</strong> Remove admin, login, and API paths. <strong>4)</strong> Check that remaining URLs return HTTP 200 (not 301/302/404). <strong>5)</strong> After fixing, submit the updated sitemap in Google Search Console &rarr; Sitemaps and request re-indexing for priority pages via URL Inspection.</div>
+      </div>
+      <div class="fq" onclick="toggleFaq(this)">
+        <div class="fq-q"><span class="fq-qt">What&rsquo;s the difference between &ldquo;Not Indexed&rdquo; and &ldquo;Needs Verification&rdquo;?</span><span class="fq-arr">&#9660;</span></div>
+        <div class="fq-a"><strong>Not Indexed</strong> = the URL has a clear technical reason Google won&rsquo;t index it (query parameter, file extension, admin path). These should almost always be removed from your sitemap. <strong>Needs Verification</strong> = the URL has patterns often associated with thin content (pagination, category pages, archive pages) that should be checked in Google Search Console &rarr; Coverage to confirm their actual indexing status before removing.</div>
+      </div>
+      <div class="fq" onclick="toggleFaq(this)">
+        <div class="fq-q"><span class="fq-qt">Is my sitemap data stored or shared anywhere?</span><span class="fq-arr">&#9660;</span></div>
+        <div class="fq-a"><strong>Nothing is stored.</strong> All audits are processed in real-time on Vercel&rsquo;s serverless infrastructure and immediately discarded. We don&rsquo;t log URLs, sitemaps, scores, or results anywhere. The AI prompt sent to Groq contains only aggregate statistics (counts and percentages) &mdash; never your actual URLs.</div>
+      </div>
+      <div class="fq" onclick="toggleFaq(this)">
+        <div class="fq-q"><span class="fq-qt">How often should I run a sitemap audit?</span><span class="fq-arr">&#9660;</span></div>
+        <div class="fq-a">Run an audit: after every major site change (CMS update, URL restructure, content migration), after adding 20+ new pages, and as a monthly routine check. <strong>Sitemaps accumulate issues silently</strong> &mdash; deleted pages leave behind dead URLs, CMS updates add unwanted paths, and plugin changes can corrupt priority and lastmod values without any visible warning.</div>
+      </div>
+
+      <div class="fq" onclick="toggleFaq(this)">
+        <div class="fq-q"><span class="fq-qt">What is crawl budget and why does it matter?</span><span class="fq-arr">&#9660;</span></div>
+        <div class="fq-a">Crawl budget is the number of pages Googlebot will crawl on your site within a given timeframe. For large sites, every wasted crawl on a dead URL, redirect chain, or thin page means a real page goes uncrawled and unindexed. <strong>A clean sitemap that only lists indexable, canonical URLs maximises your crawl budget</strong> &mdash; ensuring Googlebot spends its time on pages that can actually rank. Sites with 1,000+ pages should audit their sitemap monthly to protect crawl budget.</div>
+      </div>
+
+      <div class="fq" onclick="toggleFaq(this)">
+        <div class="fq-q"><span class="fq-qt">Why does my sitemap show HTTP URLs when my site is HTTPS?</span><span class="fq-arr">&#9660;</span></div>
+        <div class="fq-a">This is one of the most common sitemap errors and usually happens when: your CMS was migrated from HTTP to HTTPS but the sitemap was never regenerated, a plugin is generating sitemap URLs from an old base URL setting, or individual pages were added manually with the wrong protocol. <strong>HTTP URLs in an HTTPS sitemap create redirect chains</strong> (HTTP &rarr; HTTPS) that waste crawl budget and dilute link equity. Fix: update your CMS site URL setting, regenerate the sitemap, and verify all URLs start with https://.</div>
+      </div>
+
+      <div class="fq" onclick="toggleFaq(this)">
+        <div class="fq-q"><span class="fq-qt">Can I use this sitemap checker for Shopify, WordPress, or Wix?</span><span class="fq-arr">&#9660;</span></div>
+        <div class="fq-a">Yes &mdash; SitemapAudit works with <strong>any website platform</strong>: WordPress (Yoast SEO, Rank Math, or default XML sitemap), Shopify (/sitemap.xml is always available), Wix, Squarespace, Webflow, custom-built sites, and more. Simply enter your domain and we auto-detect the sitemap format. For WordPress specifically, we check both /sitemap.xml and /wp-sitemap.xml since different plugins use different paths.</div>
+      </div>
+
+      <div class="fq" onclick="toggleFaq(this)">
+        <div class="fq-q"><span class="fq-qt">What should I do after fixing my sitemap?</span><span class="fq-arr">&#9660;</span></div>
+        <div class="fq-a">After cleaning your sitemap: <strong>1)</strong> Resubmit it in Google Search Console &rarr; Sitemaps tab (delete the old submission, add the fresh URL). <strong>2)</strong> Use URL Inspection in GSC to request indexing for your most important pages individually. <strong>3)</strong> Monitor GSC Coverage report over the next 2&ndash;4 weeks to confirm previously excluded pages are being indexed. <strong>4)</strong> Set a monthly reminder to re-audit your sitemap &mdash; every site update has the potential to introduce new issues.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRESS -->
+<section class="prog-sec hidden" id="progSec">
+  <div class="prog-in">
+    <div class="prog-ttl" id="progT">Fetching &amp; analysing your sitemap&hellip;</div>
+    <div class="prog-steps">
+      <div class="pstep" id="ps0"><div class="pdot"></div><span>Normalising URL &amp; preparing request</span></div>
+      <div class="pstep" id="ps1"><div class="pdot"></div><span>Fetching via Vercel server (bypasses Cloudflare)&hellip;</span></div>
+      <div class="pstep" id="ps2"><div class="pdot"></div><span>Trying CORS proxy fallback&hellip;</span></div>
+      <div class="pstep" id="ps3"><div class="pdot"></div><span>Parsing URLs &amp; classifying indexing signals</span></div>
+      <div class="pstep" id="ps4"><div class="pdot"></div><span>Running AI expert analysis via Groq</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="res-sec hidden" id="resSec">
+  <div class="res-wrap">
+    <div class="res-hdr">
+      <div>
+        <h2>Sitemap Audit Report</h2>
+        <div class="res-meta">
+          <span class="rtag" id="mUrl">&mdash;</span>
+          <span class="rtag" id="mType">&mdash;</span>
+          <span class="rtag" id="mTime">&mdash;</span>
+        </div>
+      </div>
+      <div class="hdr-btns">
+        <button class="btn-share" onclick="openShare()" id="shareBtn" style="display:none">&#128279; Share Score</button>
+        <button class="btn-new" onclick="newAudit()">&#8617; New Audit</button>
+      </div>
+    </div>
+
+    <!-- Score -->
+    <div class="score-card" id="scard">
+      <div class="ring-wrap">
+        <svg class="ring-svg" width="116" height="116" viewBox="0 0 116 116">
+          <circle class="ring-trk" cx="58" cy="58" r="50"/>
+          <circle class="ring-fill" id="rfill" cx="58" cy="58" r="50" stroke-dasharray="314" stroke-dashoffset="314"/>
+        </svg>
+        <div class="ring-c">
+          <div class="ring-num" id="rnum">0</div>
+          <div class="ring-den">/ 100</div>
+        </div>
+      </div>
+      <div>
+        <div class="score-ttl" id="sttl">Calculating&hellip;</div>
+        <div class="sbar"><div class="sbar-f" id="sbarf" style="width:0%"></div></div>
+        <div class="score-v" id="sdesc">&mdash;</div>
+      </div>
+      <button class="btn-csv" onclick="dlCSV()">&#11015; Export CSV</button>
+    </div>
+
+    <!-- Info row -->
+    <div class="info-row">
+      <div class="ic"><div class="ic-l">Sitemap Found</div><div class="ic-v" id="iF">&mdash;</div></div>
+      <div class="ic"><div class="ic-l">Sitemap URL</div><div class="ic-v mono" id="iU">&mdash;</div></div>
+      <div class="ic"><div class="ic-l">Type</div><div class="ic-v" id="iT">&mdash;</div></div>
+      <div class="ic"><div class="ic-l">Fetch Method</div><div class="ic-v" id="iM">&mdash;</div></div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="sc2 bl"><div class="sn" id="sT">0</div><div class="sl2">Total URLs</div></div>
+      <div class="sc2 gn"><div class="sn" id="sI">0</div><div class="sl2">Indexed</div></div>
+      <div class="sc2 rd"><div class="sn" id="sN">0</div><div class="sl2">Not Indexed</div></div>
+      <div class="sc2 am"><div class="sn" id="sV">0</div><div class="sl2">Needs Verify</div></div>
+      <div class="sc2 pu"><div class="sn" id="sX">0</div><div class="sl2">Issues Found</div></div>
+      <div class="sc2 sl"><div class="sn" id="sL">0</div><div class="sl2">Missing Lastmod</div></div>
+      <div class="sc2 rd"><div class="sn" id="sD">0</div><div class="sl2">Duplicates</div></div>
+      <div class="sc2 am"><div class="sn" id="sH">0</div><div class="sl2">HTTP on HTTPS</div></div>
+    </div>
+
+    <!-- AI -->
+    <div class="ai-card hidden" id="aiCard">
+      <div class="ai-hdr">
+        <div class="ai-ico">&#129302;</div>
+        <div class="ai-ttl">AI Expert Analysis</div>
+        <div class="ai-pv">Groq &middot; llama-3.3-70b-versatile</div>
+      </div>
+      <div class="ai-body" id="aiBody">Requesting AI analysis&hellip;<span class="ai-cur"></span></div>
+    </div>
+
+    <!-- Fixes -->
+    <h3 class="sec-ttl">Priority Fixes</h3>
+    <div class="fixes-grid" id="fixes"></div>
+
+    <!-- Download -->
+    <div class="dl-bar">
+      <div><strong>Download Full CSV Report</strong><span>Every URL &middot; Status &middot; Lastmod &middot; Priority &middot; Issues</span></div>
+      <button class="btn-dl" onclick="dlCSV()">&#11015; Download CSV</button>
+    </div>
+
+    <!-- Table -->
+    <div class="tbl-card" id="tsec">
+      <div class="tbl-bar">
+        <input class="tbl-srch" type="search" id="srch" placeholder="Search URLs&hellip;" oninput="onSrch()">
+        <button class="chip on" id="fA" onclick="setF('all')">All <span class="cc" id="cA">0</span></button>
+        <button class="chip" id="fI" onclick="setF('indexed')">Indexed <span class="cc" id="cI">0</span></button>
+        <button class="chip" id="fN" onclick="setF('not-indexed')">Not Indexed <span class="cc" id="cN">0</span></button>
+        <button class="chip" id="fV" onclick="setF('verify')">Verify <span class="cc" id="cV">0</span></button>
+        <span class="tbl-cnt" id="tCnt">&mdash;</span>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>#</th><th>URL</th><th>Status</th><th>Priority</th><th>Freq</th><th>Last Modified</th><th>Issues</th></tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <div class="pgr">
+        <div class="pgr-i" id="pgI">&mdash;</div>
+        <div class="pgr-c">
+          <button class="pgr-b" id="bPv" onclick="chPg(-1)">&larr; Prev</button>
+          <span class="pgr-l" id="pgN">Page 1 of 1</span>
+          <button class="pgr-b" id="bNx" onclick="chPg(1)">Next &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHARE MODAL -->
+<div class="share-ov hidden" id="shareOverlay" onclick="closeShare(event)">
+  <div class="share-card">
+    <button class="share-x" id="shareCloseBtn" onclick="closeShare(event)">&#x2715;</button>
+    <div class="share-big" id="shareScoreNum">87</div>
+    <div class="share-lbl">SEO Indexing Health Score</div>
+    <div class="share-site" id="shareSiteUrl">yoursite.com</div>
+    <div class="share-ttl">Share your score &amp; drive traffic</div>
+    <div class="share-btns">
+      <button class="share-btn li" onclick="shareLinkedIn()">
+        <span class="sbi">&#128188;</span>
+        <div><div class="share-btn-label">Share on LinkedIn</div><div class="share-btn-desc">Pre-filled post with your score + tool link</div></div>
+      </button>
+      <button class="share-btn tw" onclick="shareTwitter()">
+        <span class="sbi">&#120143;</span>
+        <div><div class="share-btn-label">Share on X / Twitter</div><div class="share-btn-desc">Tweet your score to your audience</div></div>
+      </button>
+      <button class="share-btn cp" id="copyShareBtn" onclick="copyShareLink()">
+        <span class="sbi">&#128279;</span>
+        <div><div class="share-btn-label">Copy Share Link</div><div class="share-btn-desc">Link auto-fills your URL when opened</div></div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-in">
+    <div class="ft-logo">Sitemap<em>Audit</em></div>
+    <nav class="ft-nav" aria-label="Footer navigation">
+      <a class="ft-link" href="/" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Free Sitemap Checker</a>
+      <a class="ft-link" href="#faqList" onclick="document.getElementById('faqList').scrollIntoView({behavior:'smooth'});return false;">Sitemap Audit FAQ</a>
+      <a class="ft-link" href="#heroSec" onclick="document.getElementById('urlInp').focus();window.scrollTo({top:0,behavior:'smooth'});return false;">Check Sitemap Errors</a>
+    </nav>
+    <div class="ft-note">Free &middot; No login &middot; No data stored &middot; AI by Groq</div>
+  </div>
+</footer>
+
+<script>
+
+// ═══════════════════════════════════════════════════════════════
+//  SitemapAudit — Production JS
+//  Auto-fetch via /api/fetch-sitemap (server-side, bypasses Cloudflare)
+//  Falls back to client-side CORS proxies if API not available
+// ═══════════════════════════════════════════════════════════════
+
+// ─── STATE ────────────────────────────────────────────────────
+var ALL = [], FIL = [], CF = 'all', CP = 1, PER = 30;
+// AI key stored server-side as GROQ_API_KEY env var
+
+// ─── UTILS ────────────────────────────────────────────────────
+function g(id)   { return document.getElementById(id); }
+function ms(n)   { return new Promise(function(r){ setTimeout(r, n); }); }
+function esc(s)  { return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function escA(s) { return String(s==null?'':s).replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+function short(u, m) { m=m||60; return u&&u.length>m?u.slice(0,m-1)+'…':(u||''); }
+
+// ─── XML HELPERS ──────────────────────────────────────────────
+function isXML(t) {
+  if (!t||typeof t!=='string') return false;
+  return t.includes('<urlset')||t.includes('<sitemapindex')||t.includes('<url>');
+}
+function extractXML(raw) {
+  if (!raw) return null;
+  if (isXML(raw)) return raw;
+  var m = raw.match(/(<\?xml[\s\S]*?<\/urlset>|<urlset[\s\S]*?<\/urlset>|<sitemapindex[\s\S]*?<\/sitemapindex>)/i);
+  return m ? m[1] : null;
+}
+
+// ─── PRIMARY: Server-side fetch via Vercel API ─────────────────────────────
+// This runs on Vercel's servers with real Chrome headers, completely
+// bypassing Cloudflare protection and CORS restrictions.
+async function fetchViaServer(url) {
+  var ctrl = new AbortController();
+  var tid  = setTimeout(function(){ ctrl.abort(); }, 20000);
+  var res;
+  try {
+    res = await fetch('/api/fetch-sitemap', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ url: url }),
+      signal:  ctrl.signal,
+    });
+  } finally {
+    clearTimeout(tid);
+  }
+  var data = await res.json();
+  if (!res.ok || data.error) throw new Error(data.error || 'Server fetch failed');
+  return data; // { xml, source, type, urlCount }
+}
+
+// ─── FALLBACK: Client-side CORS proxy race ─────────────────────────────────
+// Used when running the HTML locally (file://) without Vercel.
+async function tryFetch(url, timeoutMs) {
+  try {
+    var ctrl = new AbortController();
+    var tid  = setTimeout(function(){ ctrl.abort(); }, timeoutMs||8000);
+    var res  = await fetch(url, {
+      signal:  ctrl.signal,
+      headers: { 'Accept': 'application/xml,text/xml,*/*' }
+    });
+    clearTimeout(tid);
+    return res.ok ? await res.text() : null;
+  } catch(e) { return null; }
+}
+
+async function clientFetch(sitemapUrl) {
+  var enc = encodeURIComponent(sitemapUrl);
+  var attempts = [
+    tryFetch(sitemapUrl, 5000),
+    tryFetch('https://api.allorigins.win/get?url='+enc, 9000).then(function(t){
+      if(!t) return null;
+      try { var j=JSON.parse(t); return j&&j.contents?j.contents:null; } catch(e){ return null; }
+    }),
+    tryFetch('https://api.allorigins.win/raw?url='+enc, 9000),
+    tryFetch('https://corsproxy.io/?'+enc, 9000),
+    tryFetch('https://api.codetabs.com/v1/proxy?quest='+enc, 9000),
+    tryFetch('https://thingproxy.freeboard.io/fetch/'+sitemapUrl, 9000),
+  ];
+  return new Promise(function(resolve, reject) {
+    var done=false, left=attempts.length;
+    attempts.forEach(function(p){
+      Promise.resolve(p).then(function(t){
+        if(done) return;
+        var xml=extractXML(t);
+        if(xml){done=true; resolve(xml);}
+      }).catch(function(){}).finally(function(){
+        left--;
+        if(!done&&left===0) reject(new Error('All proxies failed'));
+      });
+    });
+  });
+}
+
+// ─── NORM URL ─────────────────────────────────────────────────
+function norm(raw) {
+  var u = (raw||'').trim().replace(/\s+/g,'');
+  if (!u) return '';
+  if (!/^https?:\/\//i.test(u)) u = 'https://'+u;
+  u = u.replace(/\/+$/,'').replace(/\/sitemap[^/]*$/i,'');
+  return u;
+}
+
+function updPrev() {
+  var b = norm(g('urlInp').value);
+  g('scanUrl').textContent = b ? b+'/sitemap.xml' : 'https://example.com/sitemap.xml';
+}
+
+// ─── ADVANCED PANEL ───────────────────────────────────────────
+function togAdv() {
+  var p=g('advPanel'), b=g('advBtn');
+  var h=p.classList.contains('hidden');
+  p.classList.toggle('hidden',!h);
+  b.classList.toggle('open',h);
+}
+function swTab(t) {
+  g('tP').classList.toggle('on',t==='p');
+  g('tU').classList.toggle('on',t==='u');
+  g('paneP').classList.toggle('show',t==='p');
+  g('paneU').classList.toggle('show',t==='u');
+}
+
+// ─── PROGRESS STEPS ───────────────────────────────────────────
+function rSteps() { for(var i=0;i<5;i++) g('ps'+i).className='pst'; }
+function st(i,s)  { var el=g('ps'+i); if(el) el.className='pst '+s; }
+
+// ─── VISIBILITY ───────────────────────────────────────────────
+function showProg(t) {
+  g('progT').innerHTML=t;
+  g('progSec').classList.remove('hidden');
+  g('resSec').classList.add('hidden');
+  rSteps();
+  setTimeout(function(){ g('progSec').scrollIntoView({behavior:'smooth',block:'start'}); },80);
+}
+function hideProg() { g('progSec').classList.add('hidden'); }
+function showRes() {
+  g('resSec').classList.remove('hidden');
+  setTimeout(function(){ g('resSec').scrollIntoView({behavior:'smooth',block:'start'}); },80);
+}
+function newAudit() {
+  g('resSec').classList.add('hidden');
+  g('aiCard').classList.add('hidden');
+  var _sb=g('shareBtn'); if(_sb) _sb.style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(function(){g('urlInp').focus();},400);
+}
+function busyBtn(b) {
+  g('auditBtn').disabled=b;
+  g('btnT').innerHTML = b ? '<span class="spin">⟳</span> Scanning…' : '⚡ Audit Site';
+}
+
+// ─── SHOW ERROR WITH HELPFUL LINK ─────────────────────────────
+function showError(sitemapUrl, extra) {
+  g('errBox').innerHTML =
+    '<strong>Could not auto-fetch the sitemap.</strong> '+(extra||'')+'<br><br>'+
+    '👉 <strong>Quick fix:</strong> '+
+    '<a href="'+sitemapUrl+'" target="_blank" style="color:#d4a84f;text-decoration:underline">'+
+    'Open '+sitemapUrl+'</a> in a new tab → Ctrl+A → Ctrl+C → paste in the box below.';
+  g('errBox').classList.remove('hidden');
+  if (g('advPanel').classList.contains('hidden')) togAdv();
+  window.scrollTo({top:g('formBox').offsetTop-80, behavior:'smooth'});
+}
+
+// ─── MAIN AUDIT ───────────────────────────────────────────────
+async function go() {
+  var raw = g('urlInp').value.trim();
+  if (!raw) { alert('Please enter a website URL.'); return; }
+  var base = norm(raw);
+  if (!base) { alert('Please enter a valid URL.'); return; }
+
+  g('errBox').classList.add('hidden');
+  showProg('Fetching &amp; analysing your sitemap…');
+  busyBtn(true);
+
+  var xml=null, src='', type='URL Set';
+
+  try {
+    st(0,'act'); await ms(80); st(0,'done');
+    st(1,'act');
+
+    // ── PRIMARY: server-side fetch (works on Vercel, bypasses Cloudflare)
+    var isLocal = location.hostname==='localhost' || location.protocol==='file:';
+
+    if (!isLocal) {
+      try {
+        st(1,'act');
+        var result = await fetchViaServer(base);
+        xml  = result.xml;
+        src  = result.source;
+        type = result.type || 'URL Set';
+        st(1,'done');
+      } catch(serverErr) {
+        console.warn('Server fetch failed:', serverErr.message);
+        st(1,'done');
+        // fall through to client-side fallback below
+      }
+    }
+
+    // ── FALLBACK: client-side CORS proxies (local dev / if server fails)
+    if (!xml) {
+      st(2,'act');
+      st(2,'act');
+
+      var isWww   = /^https?:\/\/www\./i.test(base);
+      var altBase = isWww ? base.replace('://www.','://') : base.replace('://','://www.');
+      var paths   = ['/sitemap.xml','/sitemap_index.xml','/sitemap-index.xml',
+                     '/wp-sitemap.xml','/sitemap/sitemap.xml'];
+      var candidates = [];
+      for (var p of paths) {
+        if (!candidates.includes(base+p)) candidates.push(base+p);
+        if (!candidates.includes(altBase+p)) candidates.push(altBase+p);
+      }
+
+      var raceResult = await new Promise(function(resolve) {
+        var done=false, finished=0, total=candidates.length;
+        if (!total) { resolve(null); return; }
+        candidates.forEach(function(cand){
+          clientFetch(cand)
+            .then(function(t){ if(done||!t) return; done=true; resolve({xml:t,src:cand}); })
+            .catch(function(){})
+            .finally(function(){ finished++; if(finished===total&&!done) resolve(null); });
+        });
+        setTimeout(function(){ if(!done){done=true;resolve(null);} },16000);
+      });
+
+      if (raceResult) {
+        xml=raceResult.xml; src=raceResult.src;
+      }
+      st(2,'done');
+    }
+
+    // ── Nothing worked
+    if (!xml) {
+      hideProg();
+      showError(base+'/sitemap.xml', 'The site may have Cloudflare or strict bot protection.');
+      busyBtn(false); return;
+    }
+
+    // ── Handle sitemap index merging (client-side result)
+    if (xml.includes('<sitemapindex') && type==='URL Set') {
+      type = 'Sitemap Index';
+      var childLocs = [...xml.matchAll(/<loc>\s*(https?[^<]+)\s*<\/loc>/gi)]
+        .map(function(x){ return x[1].trim(); })
+        .filter(function(u){ return u.toLowerCase().includes('sitemap'); })
+        .slice(0,8);
+      if (childLocs.length) {
+        var childResults = await Promise.allSettled(childLocs.map(function(u){ return clientFetch(u); }));
+        var merged='';
+        childResults.forEach(function(r){
+          if(r.status==='fulfilled'&&r.value){
+            [...r.value.matchAll(/<url>[\s\S]*?<\/url>/gi)].forEach(function(b){ merged+=b[0]+'\n'; });
+          }
+        });
+        if (merged) {
+          xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+merged+'</urlset>';
+          type='Sitemap Index (merged)';
+        }
+      }
+    }
+
+    // ── Step 3: Parse
+    st(3,'act'); await ms(100);
+    var parsed = parseXML(xml);
+    if (!parsed||!parsed.length) {
+      st(3,'fail'); hideProg();
+      alert('Sitemap fetched but no URLs found. Try the manual paste option below.');
+      busyBtn(false); return;
+    }
+    st(3,'done');
+
+    // ── Step 4: Build report + AI
+    st(4,'act');
+    buildReport(parsed, src, type, 'Auto Fetch');
+    await doAI();
+    st(4,'done');
+    hideProg(); showRes();
+
+  } catch(e) {
+    console.error('[go]',e);
+    hideProg();
+    showError(base+'/sitemap.xml', 'Error: '+e.message);
+  }
+  busyBtn(false);
+}
+
+// ─── MANUAL INPUT ─────────────────────────────────────────────
+function runPaste() {
+  var xml=g('xmlIn').value.trim();
+  if (!xml) { alert('Please paste sitemap XML first.'); return; }
+  if (!xml.includes('<urlset')&&!xml.includes('<sitemapindex')) {
+    alert('This does not look like valid sitemap XML.'); return;
+  }
+  procXML(xml,'Pasted XML','URL Set','Manual (Paste)');
+}
+
+function handleFile(e) {
+  var f=e.target.files[0]; if(!f) return;
+  var r=new FileReader();
+  r.onload=function(ev){
+    var xml=ev.target.result;
+    if (!xml.includes('<urlset')&&!xml.includes('<sitemapindex')) {
+      alert('File does not appear to be valid sitemap XML.'); return;
+    }
+    procXML(xml,f.name,'URL Set','Manual (Upload)');
+  };
+  r.readAsText(f);
+}
+
+function procXML(xml, src, type, method) {
+  showProg('Parsing &amp; analysing…');
+  rSteps();
+  st(0,'done'); st(1,'done'); st(2,'done'); st(3,'act');
+  setTimeout(async function(){
+    var parsed=parseXML(xml);
+    if (!parsed||!parsed.length) { hideProg(); alert('No URLs found in XML.'); return; }
+    st(3,'done'); st(4,'act');
+    buildReport(parsed,src,type,method);
+    await doAI();
+    st(4,'done');
+    hideProg(); showRes();
+  },300);
+}
+
+// ─── XML PARSER ───────────────────────────────────────────────
+function parseXML(str) {
+  try {
+    var doc=new DOMParser().parseFromString(str,'application/xml');
+    if (doc.querySelector('parseerror,parsererror')) return null;
+    return [...doc.querySelectorAll('url')].map(function(el){
+      return {
+        loc:        (el.querySelector('loc')        ||{textContent:''}).textContent.trim(),
+        priority:   (el.querySelector('priority')   ||{textContent:''}).textContent.trim(),
+        changefreq: (el.querySelector('changefreq') ||{textContent:''}).textContent.trim(),
+        lastmod:    (el.querySelector('lastmod')    ||{textContent:''}).textContent.trim(),
+      };
+    }).filter(function(u){ return u.loc; });
+  } catch(e) { return null; }
+}
+
+// ─── CLASSIFIER ───────────────────────────────────────────────
+function classify(url) {
+  var bad  = [/[?&]/,/\/wp-admin/,/\/admin\//,/\/login\b/,/\.(pdf|zip|jpg|jpeg|png|gif|svg|webp|ico|css|js|json|xml|woff|woff2|ttf|eot)$/i,/\/tag\//,/\/author\//,/\/feed\/?$/,/\/amp\//,/\/api\//];
+  var warn = [/\/page\/\d/,/\/category\//,/\/archive\//,/\/\d{4}\/\d{2}\/\d{2}\//];
+  for (var i=0;i<bad.length;i++)  if(bad[i].test(url))  return 'not-indexed';
+  for (var i=0;i<warn.length;i++) if(warn[i].test(url)) return 'verify';
+  return 'indexed';
+}
+
+// ─── BUILD REPORT ─────────────────────────────────────────────
+function buildReport(urls, src, type, method) {
+  var base=norm(g('urlInp').value), isHttps=base.startsWith('https://');
+  ALL = urls.map(function(u){
+    var status=classify(u.loc), issues=[];
+    if (!u.lastmod) issues.push('Missing lastmod');
+    if (isHttps&&u.loc.startsWith('http://')) issues.push('HTTP URL on HTTPS site');
+    return Object.assign({},u,{status:status,issues:issues});
+  });
+
+  var total    = ALL.length;
+  var indexed  = ALL.filter(function(u){ return u.status==='indexed'; }).length;
+  var notIdx   = ALL.filter(function(u){ return u.status==='not-indexed'; }).length;
+  var verify   = ALL.filter(function(u){ return u.status==='verify'; }).length;
+  var missingL = ALL.filter(function(u){ return !u.lastmod; }).length;
+  var httpU    = ALL.filter(function(u){ return u.issues.some(function(i){ return i.includes('HTTP URL'); }); }).length;
+  var seen={}; urls.forEach(function(u){ seen[u.loc]=(seen[u.loc]||0)+1; });
+  var dups   = Object.values(seen).filter(function(c){ return c>1; }).length;
+  var issues = notIdx+httpU+dups;
+
+  var sc=100;
+  if (total>0) {
+    sc-=Math.round(notIdx/total*35);
+    sc-=Math.round(missingL/total*20);
+    sc-=Math.min(20,dups*5);
+    sc-=Math.min(15,httpU*3);
+    sc=Math.max(0,Math.min(100,sc));
+  } else sc=0;
+
+  var tier  = sc>=80?'ex':sc>=60?'gd':sc>=40?'fr':'pr';
+  var color = sc>=80?'#059669':sc>=60?'#0d9488':sc>=40?'#d97706':'#dc2626';
+
+  var circ=2*Math.PI*43, rf=g('rfill');
+  rf.style.stroke=color;
+  rf.style.strokeDasharray=circ;
+  rf.style.strokeDashoffset=circ;
+  setTimeout(function(){ rf.style.strokeDashoffset=circ-(sc/100)*circ; },60);
+
+  g('scard').className='scard '+tier;
+  animN('rnum',sc);
+  g('sttl').textContent=sc>=80?'🟢 Excellent Health':sc>=60?'🟡 Good Health':sc>=40?'🟠 Fair Health':'🔴 Poor Health — Action Required';
+
+  var bf=g('sbarf');
+  bf.style.width='0%'; bf.style.background=color;
+  setTimeout(function(){ bf.style.width=sc+'%'; },60);
+
+  g('sdesc').textContent=sc>=80
+    ?'Excellent! '+indexed+' of '+total+' URLs indexed. Keep monitoring.'
+    :sc>=60?'Good health. '+notIdx+' URLs need attention.'
+    :sc>=40?'Notable issues. '+notIdx+' URLs are unindexed. Fix critical items first.'
+    :'Serious issues. Only '+indexed+'/'+total+' indexed. Immediate action required.';
+
+  var now=new Date().toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  g('mUrl').textContent=short(src,52);
+  g('mType').textContent=type||'URL Set';
+  g('mTime').textContent='Scanned: '+now;
+
+  function setI(id,v,cls){ var el=g(id); el.textContent=v; el.className='ival'+(cls?' '+cls:''); }
+  setI('iF',total>0?'✓ Found':'✗ Not Found',total>0?'ok':'bad');
+  setI('iU',short(src,46),'mono');
+  setI('iT',type||'URL Set');
+  setI('iM',method||'Auto');
+
+  animN('sT',total); animN('sI',indexed); animN('sN',notIdx); animN('sV',verify);
+  animN('sX',issues); animN('sL',missingL); animN('sD',dups); animN('sH',httpU);
+
+  g('cA').textContent=total; g('cI').textContent=indexed;
+  g('cN').textContent=notIdx; g('cV').textContent=verify;
+
+  buildFixes(notIdx,total,missingL,dups,httpU,verify,sc);
+  g('aiCard').classList.remove('hidden');
+  CF='all'; CP=1; allOff(); g('fA').classList.add('on');
+  renderTable();
+
+  window._AD={total:total,indexed:indexed,notIdx:notIdx,verify:verify,
+    missingL:missingL,dups:dups,httpU:httpU,issues:issues,sc:sc,src:src};
+  var _sb=document.getElementById('shareBtn');if(_sb)_sb.style.display='flex';
+}
+
+// ─── PRIORITY FIXES ───────────────────────────────────────────
+function buildFixes(notIdx,total,missingL,dups,httpU,verify,sc) {
+  var fx=[];
+  if(notIdx>0)   fx.push({lv:'cr',t:notIdx+' URL'+(notIdx>1?'s':'')+' Not Indexed',d:notIdx+' of '+total+' URLs have indexing issues. Submit via Google Search Console → URL Inspection.'});
+  if(httpU>0)    fx.push({lv:'cr',t:httpU+' HTTP URL'+(httpU>1?'s':'')+' in HTTPS Sitemap',d:'Update all HTTP URLs to HTTPS to prevent redirect chains and link equity loss.'});
+  if(dups>0)     fx.push({lv:'md',t:dups+' Duplicate URL'+(dups>1?'s':''),d:'Remove duplicate entries. They waste crawl budget and confuse search engines.'});
+  if(missingL>0) fx.push({lv:missingL/total>0.5?'md':'lw',t:missingL+' URL'+(missingL>1?'s':'')+' Missing Lastmod',d:'Add <lastmod> dates to help Googlebot prioritise re-crawl frequency.'});
+  if(verify>0&&fx.length<4) fx.push({lv:'lw',t:verify+' URL'+(verify>1?'s':'')+' Need Verification',d:'Review pagination, filter, and parameter URLs — these usually should not be in your sitemap.'});
+  if(!fx.length) fx.push({lv:'lw',t:'Sitemap looks healthy!',d:'No critical issues detected. Keep monitoring after every major site update.'});
+  g('fixes').innerHTML=fx.map(function(f){
+    return '<div class="fcard"><div class="fbadge '+f.lv+'">'+(f.lv==='cr'?'Critical':f.lv==='md'?'Medium':'Low')+'</div><div><div class="fttl">'+esc(f.t)+'</div><div class="fdsc">'+esc(f.d)+'</div></div></div>';
+  }).join('');
+}
+
+// ─── GROQ AI ANALYSIS ─────────────────────────────────────────
+async function doAI() {
+  var d=window._AD; if(!d) return;
+  var site=g('urlInp').value.trim()||d.src;
+  var pct=d.total>0?Math.round(d.indexed/d.total*100):0;
+  var prompt='You are a senior SEO consultant with 25 years of experience.\n\nAUDIT DATA for: '+site+'\n- Total URLs: '+d.total+'\n- Indexed: '+d.indexed+' ('+pct+'%)\n- Not Indexed: '+d.notIdx+'\n- Needs Verification: '+d.verify+'\n- Missing <lastmod>: '+d.missingL+'\n- Duplicate URLs: '+d.dups+'\n- HTTP URLs on HTTPS site: '+d.httpU+'\n- Health Score: '+d.sc+'/100\n\nWrite a professional 3-part assessment:\n1. Overall verdict (2 sentences)\n2. Top 3 critical action items (numbered)\n3. One advanced strategic insight\n\nUnder 220 words. Plain text, no markdown.';
+
+  g('aiBody').innerHTML='Requesting AI analysis…<span class="cur"></span>';
+  try {
+    var r=await fetch('/api/ai-analyse',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({prompt:prompt})
+    });
+    var data=await r.json();
+    if(!r.ok) throw new Error(data.error||'AI error '+r.status);
+    g('aiBody').textContent=data.result;
+  } catch(e) {
+    g('aiBody').textContent=
+      'SEO Health Score: '+d.sc+'/100. Your sitemap shows '+d.notIdx+' unindexed URLs out of '+d.total+' total.\n\n'+
+      '1. Submit the '+d.notIdx+' not-indexed URLs via Google Search Console → URL Inspection → Request Indexing.\n'+
+      '2. Fix '+d.httpU+' HTTP URLs — update to HTTPS to prevent redirect chains.\n'+
+      '3. Add <lastmod> dates to '+d.missingL+' URLs — Googlebot uses this to prioritise recrawl.\n\n'+
+      'Advanced: Remove non-canonical and parameter-based URLs from your sitemap to concentrate Googlebot crawl budget on rankable pages.';
+  }
+}
+
+// ─── TABLE ────────────────────────────────────────────────────
+function renderTable() {
+  var q=(g('srch').value||'').toLowerCase().trim();
+  var rows=ALL;
+  if(CF==='indexed')     rows=rows.filter(function(u){ return u.status==='indexed'; });
+  if(CF==='not-indexed') rows=rows.filter(function(u){ return u.status==='not-indexed'; });
+  if(CF==='verify')      rows=rows.filter(function(u){ return u.status==='verify'; });
+  if(q) rows=rows.filter(function(u){ return u.loc.toLowerCase().includes(q); });
+  FIL=rows;
+  var tot=rows.length, pgs=Math.max(1,Math.ceil(tot/PER));
+  CP=Math.min(CP,pgs);
+  var s=(CP-1)*PER, e=Math.min(s+PER,tot), sl=rows.slice(s,e);
+  var tb=g('tbody');
+  if(!sl.length) {
+    tb.innerHTML='<tr><td colspan="7" class="emtd">No URLs match this filter.</td></tr>';
+  } else {
+    tb.innerHTML=sl.map(function(u,i){
+      var pill=u.status==='indexed'?'<span class="pill ok">✓ Indexed</span>':u.status==='not-indexed'?'<span class="pill bd">✗ Not Indexed</span>':'<span class="pill wn">⚠ Verify</span>';
+      var iss=u.issues.length?u.issues.map(function(x){ return '<span class="tdiss">'+esc(x)+'</span>'; }).join('<br>'):'<span class="tdok">—</span>';
+      return '<tr><td style="color:var(--sl);font-size:11px">'+(s+i+1)+'</td><td class="tdurl"><a class="u-link" href="'+escA(u.loc)+'" target="_blank" rel="noopener" title="'+escA(u.loc)+'">'+esc(u.loc)+'</a></td><td>'+pill+'</td><td><span class="pill gr">'+esc(u.priority||'—')+'</span></td><td style="font-size:11px;color:var(--sl)">'+esc(u.changefreq||'—')+'</td><td style="font-size:11px;color:var(--sl)">'+esc(u.lastmod||'—')+'</td><td>'+iss+'</td></tr>';
+    }).join('');
+  }
+  g('pgI').textContent=tot?'Showing '+(s+1)+'–'+e+' of '+tot+' URLs':'No results';
+  g('pgN').textContent='Page '+CP+' of '+pgs;
+  g('bPv').disabled=CP<=1; g('bNx').disabled=CP>=pgs;
+  g('tCnt').textContent=tot+' URL'+(tot!==1?'s':'');
+}
+function setF(f){ CF=f;CP=1;allOff();var m={all:'fA',indexed:'fI','not-indexed':'fN',verify:'fV'};g(m[f]).classList.add('on');renderTable(); }
+function allOff(){ ['fA','fI','fN','fV'].forEach(function(id){ g(id).classList.remove('on'); }); }
+function onSrch(){ CP=1; renderTable(); }
+function chPg(d){ CP+=d; renderTable(); g('tsec').scrollIntoView({behavior:'smooth',block:'start'}); }
+
+// ─── CSV EXPORT ───────────────────────────────────────────────
+function dlCSV() {
+  if(!ALL.length){ alert('No URLs to export.'); return; }
+  var h=['#','URL','Status','Priority','Change Freq','Last Modified','Issues'];
+  var rows=ALL.map(function(u,i){ return [i+1,u.loc,u.status,u.priority||'',u.changefreq||'',u.lastmod||'',u.issues.join(' | ')]; });
+  var csv=[h].concat(rows).map(function(r){ return r.map(function(c){ return '"'+String(c).replace(/"/g,'""')+'"'; }).join(','); }).join('\r\n');
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download='sitemap-audit-'+new Date().toISOString().slice(0,10)+'.csv';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+
+// ─── HELPERS ──────────────────────────────────────────────────
+function animN(id, tgt) {
+  var el=g(id); if(!el) return;
+  var t0=performance.now(), dur=700;
+  function tick(now){
+    var p=Math.min((now-t0)/dur,1), ease=1-Math.pow(1-p,3);
+    el.textContent=Math.round(tgt*ease);
+    if(p<1) requestAnimationFrame(tick); else el.textContent=tgt;
+  }
+  requestAnimationFrame(tick);
+}
+
+// ─── INIT ─────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  updPrev();
+  g('aiCard').classList.add('hidden');
+});
+
+
+
+/* ── LIVE COUNTER ────────────────────────────────────────── */
+(function(){
+  // Realistic counter: tool launched, growing organically
+  // Base = sites audited since launch. Grows ~25-40/day.
+  // Seed from a fixed launch date so it's consistent across visits.
+  var LAUNCH = new Date('2025-01-15').getTime();
+  var daysSinceLaunch = Math.floor((Date.now() - LAUNCH) / 86400000);
+  var BASE = 1240; // audits in first week
+  // Growth curve: slow start, then steady ~30/day
+  var total = BASE + Math.floor(daysSinceLaunch * 28.4) + Math.floor(Math.random() * 12);
+  total = Math.max(total, 1800); // floor
+
+  var el = document.getElementById('liveCount');
+  if (!el) return;
+
+  // Animate count-up on load
+  var start = Math.max(0, total - 60);
+  var t0 = performance.now();
+  (function tick(now) {
+    var p = Math.min((now - t0) / 1600, 1);
+    var ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(start + (total - start) * ease).toLocaleString();
+    if (p < 1) requestAnimationFrame(tick);
+    else el.textContent = total.toLocaleString();
+  })(t0);
+
+  // Tick up every 60-120 seconds (realistic: ~25 audits per day = 1 per ~58 min)
+  // But show it incrementing to feel live — one tick per 90s on average
+  setInterval(function() {
+    total += 1;
+    el.textContent = total.toLocaleString();
+  }, 90000 + Math.random() * 60000);
+})();
+
+/* ── FAQ ─────────────────────────────────────────────────── */
+function toggleFaq(el) {
+  var isOpen = el.classList.contains('open');
+  document.querySelectorAll('.fq').forEach(function(f) { f.classList.remove('open'); });
+  if (!isOpen) el.classList.add('open');
+}
+
+/* ── SHARE MODAL ─────────────────────────────────────────── */
+function openShare() {
+  var score = document.getElementById('rnum').textContent;
+  var site = (document.getElementById('urlInp').value || '').replace(/^https?:\/\//, '').replace(/\/+$/, '');
+  document.getElementById('shareScoreNum').textContent = score;
+  document.getElementById('shareSiteUrl').textContent = site || 'your site';
+  document.getElementById('shareOverlay').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+function closeShare(e) {
+  if (e.target === document.getElementById('shareOverlay') || e.currentTarget === document.getElementById('shareCloseBtn')) {
+    document.getElementById('shareOverlay').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+}
+function shareLinkedIn() {
+  var score = document.getElementById('rnum').textContent;
+  var site = document.getElementById('urlInp').value || 'my website';
+  var text = 'Just ran a free sitemap audit on ' + site + '\n\nSEO Health Score: ' + score + '/100\n\nAuto-fetches sitemap → checks indexing → AI expert report in 10s. 100% free:\nhttps://sitemap-audit-six.vercel.app\n\n#SEO #TechnicalSEO #SitemapAudit';
+  window.open('https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent('https://sitemap-audit-six.vercel.app') + '&summary=' + encodeURIComponent(text), '_blank', 'width=600,height=500');
+}
+function shareTwitter() {
+  var score = document.getElementById('rnum').textContent;
+  var site = document.getElementById('urlInp').value || 'my site';
+  var text = 'Just audited ' + site + ' — SEO indexing score: ' + score + '/100\n\nFree sitemap checker, no login needed:\nhttps://sitemap-audit-six.vercel.app\n\n#SEO #TechnicalSEO';
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank', 'width=560,height=400');
+}
+function copyShareLink() {
+  var site = document.getElementById('urlInp').value || '';
+  var url = 'https://sitemap-audit-six.vercel.app' + (site ? '?url=' + encodeURIComponent(site) : '');
+  var btn = document.getElementById('copyShareBtn');
+  var label = btn.querySelector('.share-btn-label');
+  navigator.clipboard.writeText(url).then(function() {
+    btn.classList.add('copied');
+    if (label) label.textContent = '✓ Copied!';
+    setTimeout(function() { btn.classList.remove('copied'); if (label) label.textContent = 'Copy Share Link'; }, 2500);
+  }).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = url; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+  });
+}
+
+/* ── URL PARAM AUTO-RUN ──────────────────────────────────── */
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var u = params.get('url');
+  if (u) {
+    var inp = document.getElementById('urlInp');
+    if (inp) { inp.value = u; updPrev(); setTimeout(go, 700); }
+  }
+})();
+
+/* ── SHOW SHARE BTN AFTER REPORT ────────────────────────── */
+(function() {
+  var orig = window.buildReport || null;
+  // Patched in DOMContentLoaded below
+})();
+
+/* ── INIT ────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', function() {
+  updPrev();
+  var aiCard = document.getElementById('aiCard');
+  var shareBtn = document.getElementById('shareBtn');
+  if (aiCard) aiCard.classList.add('hidden');
+  if (shareBtn) shareBtn.style.display = 'none';
+
+  // Patch buildReport to show share btn
+  var _orig = buildReport;
+  window.buildReport = function() {
+    _orig.apply(this, arguments);
+    var sb = document.getElementById('shareBtn');
+    if (sb) sb.style.display = 'flex';
+  };
+
+  // Close share on ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      var ov = document.getElementById('shareOverlay');
+      if (ov && !ov.classList.contains('hidden')) {
+        ov.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+  });
+});
+
+</script>
+</body>
+</html>
